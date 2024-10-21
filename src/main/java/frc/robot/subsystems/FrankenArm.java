@@ -141,22 +141,6 @@ private void stopMotors() {
   LauncherFeedMotor.set(0);
 }
 
-// public void checkBreakBeam() {
-//   if (beamTripped) {
-//       // Beam has already been tripped, keep motors off
-//       stopMotors();
-//       return;
-//   }
-
-//   if (limit.get()) {
-//       System.out.println("Break beam intact. Motors can run.");
-//   } else {
-//       System.out.println("Break beam tripped! Stopping motors.");
-//       stopMotors();
-//       beamTripped = true; // Set the flag to indicate the beam has been tripped
-//   }
-// }
-
 @Override
     public void periodic() {
         // This method will be called once per scheduler run
@@ -169,34 +153,11 @@ private void stopMotors() {
             //stopMotors();
         }
 
-        // If a note hasn't been detected yet, check for it
-        // if (!noteDetected) {
-        //     if (!limit.get()) {
-        //         System.out.println("Note detected! Starting to check break beam.");
-        //         noteDetected = true;
-        //     }
-        //     return; // Exit the method if we're still waiting for a note
-        // }
-
         if(intakeOn==true) {
           BreakBeam();
         }else{
           System.out.println("Intake isn't currently running");
         }
-
-        // At this point, a note has been detected, but the beam hasn't been tripped yet
-        // if (limit.get()) {
-        //     System.out.println("Break beam intact. Motor can run.");
-        //     beamTripped = false;
-        // } else {
-        //     System.out.println("Break beam tripped! Stopping motor.");
-        //     stopMotors();
-        //     beamTripped = true; // Set the flag to indicate the beam has been tripped
-        // }
-
-        // if (beamTripped==true) {
-        //     stopMotors();
-        // }
     }
 
       public void BreakBeam(){
@@ -210,63 +171,6 @@ private void stopMotors() {
             beamTripped = true; // Set the flag to indicate the beam has been tripped
         }
       }
-
-    // public void BreakBeam(){
-    //   if (limit.get()) {
-    //         System.out.println("Break beam intact. Motor can run.");
-    //         beamTripped = false;
-    //     } else {
-    //         System.out.println("Break beam tripped! Stopping motor.");
-    //         stopMotors();
-    //         beamTripped = true; 
-    //         intakeOn = false;
-    //     }
-
-    //     if (beamTripped==true) {
-    //         stopMotors();
-    //     }
-    // }
-
-    // public void resetBreakBeamSystem() {
-    //     beamTripped = false;
-    //     System.out.println("Break beam system reset.");
-    // }
-
-    
-
-    // Add other methods for controlling the FrankenArm as needed
-
-// public void checkBreakBeam() {
-//   if (beamTripped) {
-//       // Beam has already been tripped, keep motors off
-//       IntakeFeedMotor.set(0);
-//       IntakeCenterMotor.set(0);
-//       LauncherFeedMotor.set(0);
-//       return;
-//   }
-
-//   if (limit.get()) {
-//       System.out.println("Break beam intact. Motors can run.");
-//   } else {
-//       System.out.println("Break beam tripped! Stopping motors.");
-//       IntakeFeedMotor.set(0);
-//       IntakeCenterMotor.set(0);
-//       LauncherFeedMotor.set(0);
-//       beamTripped = true; // Set the flag to indicate the beam has been tripped
-//   }
-// }
-
-// public void checkBreakBeam() {
-//   if (limit.get()) {
-//   System.out.println("Break beam intact. Motors can run.");
-//  } else {
-//   System.out.println("Break beam tripped! Stopping motors.");
-//   IntakeFeedMotor.set(0);
-//   IntakeCenterMotor.set(0);
-//   LauncherFeedMotor.set(0);
-//   }
-//   }
-
 }
 
 
